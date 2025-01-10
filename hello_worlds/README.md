@@ -10,12 +10,12 @@ I wanted to do this project so that I can practice my skills of in different lan
 
 # Development Environment
 
-{Describe the tools that you used to develop the software}
+* I used visual studio code to write this code. This is a function oriantatd programming that prints hello world inthe terminal.
 
-{Describe the programming language that you used}
+Python is programming language that was designed for simplicity and readability. Python can be both object-oriented and functional programming.
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
-* [Web Site Name](http://url.link.goes.here)
-* [Web Site Name](http://url.link.goes.here)
+I didn't use other websites but if you would like ot learn python on your own I would suggest W3Schools
+
+(w3schools)[https://www.w3schools.com/python/default.asp]

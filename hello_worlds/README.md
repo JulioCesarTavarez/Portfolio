@@ -12,7 +12,7 @@ I wanted to do this project so that I can practice my skills of in different lan
 
 * I used visual studio code to write this code. This is a function oriantatd programming that prints hello world inthe terminal.
 
-*Python is programming language that was designed for simplicity and readability. Python can be both object-oriented and functional programming.
+* Python is programming language that was designed for simplicity and readability. Python can be both object-oriented and functional programming.
 
 # Useful Websites
 

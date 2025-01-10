@@ -18,4 +18,4 @@ Python is programming language that was designed for simplicity and readability.
 
 I didn't use other websites but if you would like ot learn python on your own I would suggest W3Schools
 
-(w3schools)[https://www.w3schools.com/python/default.asp]
+[w3schools](https://www.w3schools.com/python/default.asp)

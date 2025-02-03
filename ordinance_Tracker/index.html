@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+
+    <link rel="stylesheet" href="stake.css">
+    <script src="stake.js"> </script>
+
+</head>
+    
+<body> 
+    <header> 
+        <h1> Saint Anthony Idaho Stake</h1> 
+    </header> 
+    
+    <main>
+        <form>
+
+            <label>
+                <b>Choose a Ward </b> 
+            </label>
+
+            <select name="ward" id="ward"> 
+                <option value="1stWard">St. Anthony 1st </option> 
+                <option value="2ndWard">St. Anthony2nd </option> 
+                <option value="3rdWard">St. Anthony 3rd </option> 
+                <option value="4thWard">St.Anthony 4th </option> 
+                <option value="Parker1st">Parker 1st</option> 
+                <option value="Parker2nd">Parker 2nd</option> 
+                <option value="TG1st">Twin Groves 1st</option> 
+                <option value="TG2nd">Twin Groves 2nd</option> 
+                <option value="Wilford1st">Wilford 1st</option> 
+                <option value="Wilford2nd">Wilford 2nd</option> 
+            </select> 
+        <br></br>
+                
+            <label> <b> Select Ordinaces Completed </b> </label> 
+            
+            <div name="ordinance" id="ordinance" class="ordinance"> 
+                <label for="baptism"><input type="checkbox" value="baptism">Baptism</label> 
+                <label for="confermation"><input type="checkbox" value="confermation">Confermation</label> 
+                <label for="initatory"><input type="checkbox" value="initatory">Initatory</label> 
+                <label for="endowment"><input type="checkbox" value="endowment">Endowment</label> 
+                <label for="sealing"><input type="checkbox" value="sealing">Sealing</label>
+            </div> 
+            
+            <br></br> 
+
+            <label> <b> How many did you do:</b> </label> 
+            <input name="ordNumber" id="ordNumber" class="ordNumber" type="number"> 
+
+            </div> 
+                <button> Submit </button> 
+            </div>
+        </form>
+                
+        <div>
+            <h2> Completed Ordinances </h2>
+
+            <h3> Baptism </h3> 
+            <p id="Tbap" class="tbap"> 0 </p>
+
+            <h3> Confirmation </h3> 
+            <p id="Tconf"> 0 </p> 
+
+            <h3> Initatory </h3> 
+            <p id="Tinit"> 0 </p> 
+            
+            <h3> Endowment </h3> 
+            <p id="Tend"> 0 </p> 
+            
+            <h3> Sealing </h3> 
+            <p id="Tseal"> 0 </p> 
+        </div> 
+
+    </main> 
+            
+    <footer> </footer> 
+
+</body> 
+
+</html>

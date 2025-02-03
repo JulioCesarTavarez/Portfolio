@@ -4,7 +4,7 @@
     <title></title>
 
     <link rel="stylesheet" href="stake.css">
-    <script src="stake.js"> </script>
+    <script src="stake.js" de> </script>
 
 </head>
     
@@ -21,6 +21,7 @@
             </label>
 
             <select name="ward" id="ward"> 
+                <option value="Stake">Stake</option>
                 <option value="1stWard">St. Anthony 1st </option> 
                 <option value="2ndWard">St. Anthony2nd </option> 
                 <option value="3rdWard">St. Anthony 3rd </option> 
@@ -32,22 +33,54 @@
                 <option value="Wilford1st">Wilford 1st</option> 
                 <option value="Wilford2nd">Wilford 2nd</option> 
             </select> 
+
         <br></br>
-                
-            <label> <b> Select Ordinaces Completed </b> </label> 
+
+            <div class="checkHolder">   
+                <label> <b> Select Ordinaces Completed </b> </label> 
             
-            <div name="ordinance" id="ordinance" class="ordinance"> 
-                <label for="baptism"><input type="checkbox" value="baptism">Baptism</label> 
-                <label for="confermation"><input type="checkbox" value="confermation">Confermation</label> 
-                <label for="initatory"><input type="checkbox" value="initatory">Initatory</label> 
-                <label for="endowment"><input type="checkbox" value="endowment">Endowment</label> 
-                <label for="sealing"><input type="checkbox" value="sealing">Sealing</label>
-            </div> 
+                <div name="ordinance" id="ordinance" class="ordinance"> 
+                    <label for="baptism"><input type="checkbox" id="baptism" value="baptism">Baptism</label> 
+
+                    <label for="confermation"><input type="checkbox"id="confermation" value="confermation">Confermation</label> 
+
+                    <label for="initatory"><input type="checkbox" id="initatory" value="initatory">Initatory</label> 
+
+                    <label for="endowment"><input type="checkbox" id="endowment" value="endowment">Endowment</label> 
+
+                    <label for="sealingChild"><input type="checkbox" id="sealingChild" value="sealingChild">Sealing Child</label>
+                   
+                    <label for="sealingParent"><input type="checkbox" id="sealingParent" value="sealingParent">Sealing Parent</label>
+                </div> 
+            </div>
             
             <br></br> 
 
             <label> <b> How many did you do:</b> </label> 
-            <input name="ordNumber" id="ordNumber" class="ordNumber" type="number"> 
+            <div class="bapInput" id="bapInput">
+                <label">Baptisms completed</label>
+                <input name="baptismInput" id="ordNumber" class="ordNumber" type="number">
+            </div>
+
+            <div class="confInput" id="confInput">
+                <label">Confermations completed</label>
+                <input name="ConfermationInput" type="number">
+            </div>
+
+            <div class="initInput" id="initInput">
+                <label">Initatorys completed</label>
+                <input name="initatory" type="number">
+            </div>
+
+            <div class="endInput" id="endInput">
+                <label">Endowments completed</label>
+                <input name="endowmentInput" type="number">
+            </div>
+            <div class="sealInput" id="sealInput">
+                <label">Sealings completed</label>
+                <input name="sealingInput" type="number">
+            </div>
+            
 
             </div> 
                 <button> Submit </button> 

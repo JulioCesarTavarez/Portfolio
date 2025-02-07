@@ -1,6 +1,6 @@
 body{
-    margin: auto;
-    padding: auto;
+    margin: 0;
+    padding: 0;
     background-color:rgb(204, 207, 211);
 }
 
@@ -8,14 +8,20 @@ header{
     text-align: center;
     background-color: #7ea8be;
     color:#cccfd3;
-    padding: -1%;
+    padding: 0%;
     margin-bottom: 5%;
+}
+
+.heroBanner{
+    padding : 0%;
 }
 
 img{
     width: 100%;
     height: auto;
     max-height: 300px;
+    margin: 0%;
+    padding:0%;
 }
 
 main{
@@ -44,10 +50,6 @@ form{
     text-align: left;
 grid-template-columns: 1fr 1fr;
 display: grid;
-}
-
-button{
-    
 }
 
 .displayOrdinance{

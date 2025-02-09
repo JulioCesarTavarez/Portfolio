@@ -25,7 +25,6 @@ HTML, CSS, NODE.js, Javascript, JSON, Visual Studio Code.
 
 # Useful Websites
 
-{Make a list of websites that you found helpful in this project}
 if you go to ordiance tracker plase don't enter in any numbers as this web cite I built for the use of the members in that ward.
 the start of 2026
 * [Ordinance Tracker](https://ordinancetracker.com/submit-ordinances/?)

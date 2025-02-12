@@ -8,7 +8,7 @@ This web app is geared towared members of the lds church who live insaint anthon
 all together. then as a stake they can see how many ordinances have been done all together
 
 
-[Demo video]([http://youtube.link.goes.here](https://youtu.be/4VstHh4PPsA))
+[Demo video](https://youtu.be/4VstHh4PPsA)
 
 # Web Pages
 

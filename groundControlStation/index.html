@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="groundControl.css">
+    <title>Ground Control Station</title>
+
+</head>
+<body>
+    <header>
+        <h1>Header</h1>
+    </header>
+    <nav>
+        <button id = "refresh" class="refresh">refresh</button>
+
+        <select name="port" id="portSelection" class="selector"> 
+            <option name="port1" value="#">Port 1</option>
+            <option name="port1" value="#">Port 2</option> 
+            <option name="port1" value="#">Port 3 </option> 
+            <option name="port1" value="#">Port 4</option> 
+        </select> 
+
+        <select name="bandWidth" id="bandWidth" class = "selector"> 
+            <option name ="BandWidth1" value="9600">9600</option>
+            <option name ="BandWidth2" value="38400">38400</option> 
+            <option name ="BandWidth3" value="115200">115200 </option> 
+        </select>   
+
+        <button id = "activate" class="activate">Activate</button>
+    </nav>
+
+
+    <main>
+        <div class="divHolder1">
+            <div class="output">Output 1</div>
+            <div class="output">Output 2</div>
+            <div class="output">Output 3</div>
+            <div class="output">Output 4</div>
+        </div>
+
+        <div class="divHolder2">
+            <div class="output">Output 1</div>
+            <div class="output">Output 2</div>
+            <div class="output">Output 3</div>
+            <div class="output">Output 4</div>
+        </div>
+
+    </main>
+
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Card Search</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        img { width: 300px; margin-top: 20px; display: none; } /* Hide image initially */
+        input, select, button { padding: 10px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Search Magic: The Gathering Card</h1>
+    <input type="text" id="card-input" placeholder="Enter card name">
+    <button onclick="fetchPrintings()">Search Card</button>
+
+    <h2 id="card-name"></h2>
+    <select id="set-selector" onchange="fetchSelectedCard()" style="display: none;"></select>
+    <img id="card-image" src="" alt="Card image will appear here">
+    <p id="card-price"></p>
+
+    <script>
+        let cardPrintings = [];
+
+        async function fetchPrintings() {
+            const cardName = document.getElementById("card-input").value.trim();
+            if (!cardName) {
+                alert("Please enter a card name!");
+                return;
+            }
+
+            const url = `https://api.scryfall.com/cards/named?fuzzy=${encodeURIComponent(cardName)}`;
+
+
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        "Accept": "application/json",
+                        "User-Agent": "MTGCardApp/1.0"
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error("Card not found! Please check the spelling.");
+                }
+
+                const data = await response.json();
+                cardPrintings = data.data; // Store all printings
+
+                if (cardPrintings.length > 1) {
+                    populateSetDropdown();
+                } else {
+                    displayCard(cardPrintings[0]); // If only one printing, display it directly
+                }
+
+            } catch (error) {
+                alert(error.message);
+            }
+        }
+
+        function populateSetDropdown() {
+            const select = document.getElementById("set-selector");
+            select.innerHTML = ""; // Clear previous options
+
+            if (cardPrintings.length > 1) {
+                select.style.display = "inline-block"; // Show dropdown if multiple versions exist
+
+                cardPrintings.forEach((card, index) => {
+                    const option = document.createElement("option");
+                    option.value = index;
+                    option.textContent = `${card.set_name} (${card.set.toUpperCase()})`;
+                    select.appendChild(option);
+                });
+
+                fetchSelectedCard(); // Display first card by default
+            } else {
+                select.style.display = "none"; // Hide dropdown if only one version exists
+            }
+        }
+
+        function fetchSelectedCard() {
+            const select = document.getElementById("set-selector");
+            const selectedIndex = select.value;
+            displayCard(cardPrintings[selectedIndex]);
+        }
+
+        function displayCard(cardData) {
+            document.getElementById("card-name").textContent = cardData.name;
+            
+            const imgElement = document.getElementById("card-image");
+            if (cardData.image_uris?.normal) {
+                imgElement.src = cardData.image_uris.normal;
+                imgElement.style.display = "block"; // Show image when available
+            } else {
+                imgElement.style.display = "none"; // Hide image if not available
+            }
+            
+            // Get price data
+            const price = cardData.prices.usd || cardData.prices.usd_foil || "N/A";
+            document.getElementById("card-price").textContent = price !== "N/A" ? `Market Price: $${price}` : "Price not available";
+        }
+    </script>
+</body>
+</html>

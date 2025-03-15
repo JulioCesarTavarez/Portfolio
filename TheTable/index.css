@@ -13,6 +13,21 @@ header{
     align-items: center;
     max-height: fit-content;
     margin-bottom: 5px;
+    border: #000000 2px solid;
+    
+}
+
+.logoHolder{
+    margin-left: 10px;
+    width: 80px;
+    height: 80px;
+}
+
+.titleCenter{
+    border: #000000 2px solid;
+    border-radius: 50px;
+    width: 200px;
+    margin-left: 100px;
 }
 
 h1{
@@ -30,6 +45,8 @@ nav{
     grid-column-start: 1;
     grid-column-end: 4;
     padding: 5px;
+    text-align: center;
+    
 }
 
 button{

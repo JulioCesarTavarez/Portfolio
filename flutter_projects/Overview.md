@@ -6,10 +6,6 @@ logsin it will take them to the youtube video of being rickrolled.
 
 [Video Description](https://youtu.be/5JbwphM3qxY)
 
-{Provide a link to your YouTube demonstration.  It should be a 4-5 minute demo of the app running and a walkthrough of the code.}
-
-[Software Demo Video](http://youtube.link.goes.here)
-
 # Development Environment
 
 {Describe the tools that you used to develop the app}

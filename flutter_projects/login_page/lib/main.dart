@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   runApp(const MyApp());
 }
+
+String? savedUsername;
+String? savedPassword;
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -22,7 +26,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
@@ -34,19 +37,35 @@ class _MyHomePageState extends State<MyHomePage> {
   String _password = '';
 
   void _handleSubmit() {
-    print('Username: $_username');
-    print('Password: $_password'); // ⚠️ Never log passwords in production!
+    if (_username == savedUsername && _password == savedPassword) {
+      _launchRickroll();
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Invalid login!')),
+      );
+    }
   }
 
   void _handleCreateAccount() {
-    print('Navigate to Create Account Page'); // Implement navigation here
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const CreateAccountPage()),
+    );
+  }
+
+  Future<void> _launchRickroll() async {
+    const url = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url), mode: LaunchMode.externalApplication);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       body: Center(
@@ -55,68 +74,96 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              // Logo
               ClipOval(
-                child: Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.blue, // Background color
-                ),
+                child: Container(width: 100, height: 100, color: Colors.blue),
               ),
               const SizedBox(height: 16),
-
-              // Username Input
               TextFormField(
                 decoration: const InputDecoration(
                   labelText: 'Username',
                   border: OutlineInputBorder(),
                 ),
-                onChanged: (value) {
-                  setState(() {
-                    _username = value;
-                  });
-                },
+                onChanged: (value) => setState(() => _username = value),
               ),
               const SizedBox(height: 16),
-
-              // Password Input
               TextFormField(
                 decoration: const InputDecoration(
                   labelText: 'Password',
                   border: OutlineInputBorder(),
                 ),
                 obscureText: true,
-                onChanged: (value) {
-                  setState(() {
-                    _password = value;
-                  });
-                },
+                onChanged: (value) => setState(() => _password = value),
               ),
               const SizedBox(height: 20),
-
-              // Login Button
               ElevatedButton(
                 onPressed: _handleSubmit,
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                  textStyle: const TextStyle(fontSize: 18),
-                ),
                 child: const Text('Enter'),
               ),
-
               const SizedBox(height: 10),
-
-              // Create Account Button
               ElevatedButton(
                 onPressed: _handleCreateAccount,
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
-                  textStyle: const TextStyle(fontSize: 18),
-                ),
                 child: const Text('Create Account'),
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class CreateAccountPage extends StatefulWidget {
+  const CreateAccountPage({super.key});
+
+  @override
+  State<CreateAccountPage> createState() => _CreateAccountPageState();
+}
+
+class _CreateAccountPageState extends State<CreateAccountPage> {
+  String _newUsername = '';
+  String _newPassword = '';
+
+  void _handleAccountCreation() {
+    savedUsername = _newUsername;
+    savedPassword = _newPassword;
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Account created! Now log in.')),
+    );
+
+    Navigator.pop(context); // Go back to login screen
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: const Text('Create Account')),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'New Username',
+                border: OutlineInputBorder(),
+              ),
+              onChanged: (value) => _newUsername = value,
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              decoration: const InputDecoration(
+                labelText: 'New Password',
+                border: OutlineInputBorder(),
+              ),
+              obscureText: true,
+              onChanged: (value) => _newPassword = value,
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: _handleAccountCreation,
+              child: const Text('Create Account'),
+            ),
+          ],
         ),
       ),
     );

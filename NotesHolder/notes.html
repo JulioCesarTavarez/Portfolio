@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="notes.css">
+    <script type="module" src="notes.js" defer></script>
+    
+</head>
+<body>
+    <header>
+        <div>
+            <h2>Cool Notes</h1>
+        </div>
+        <div>
+            <h3 id="user_welcome">Class:</h3>
+        </div>
+        <div>
+            <p>&copy 2025</p>
+        </div>
+    </header>
+
+    <main>
+
+        <form id="noteCreationForm" class="noteCreationForm hideNote">
+            <div id="closeContainer" class="closeContainer">
+                <button id="cancelCreation" class="cancelCreation">X</button> 
+            </div>
+            <div class="noteTitle">
+                <label for="note_title">Note Title:</label> 
+                <input type="text" id="note_title" class="noteTitle" name="note_title">
+            </div>
+            <div class="noteTextContainer">
+                <label for="note_text">Note Text</label>
+                <textarea type="text" id="note_text" class="noteText" name="note_text"></textarea>
+            </div>
+
+            <button id="addNote">Add note</button>
+        </form>
+
+    </main>
+    <footer>
+        <div>
+            <button id="add-button" class="add-button">
+                +
+            </button>
+            <button class="delete-button">
+                X
+            </button>
+        </div>
+        <!-- <a href="https://www.flaticon.com/free-icons/sunset" title="sunset icons">Sunset icons created by Ciamis Interior design - Flaticon</a> -->
+    </footer>
+
+    
+</body>
+</html>

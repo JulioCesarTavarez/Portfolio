@@ -1,0 +1,99 @@
+@import "./colors.css";
+@import "./header.css";
+@import "./addDeleteButton.css";
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #d5d0b3;
+}
+
+main{
+    margin-top: 10%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stickyNote{
+    width: 20%;
+    height: auto;
+    background-color: var(--color2);
+    border: var(--color0) solid 2px;
+    border-radius: 10px;
+    min-width: 150px;
+    padding: 10px;
+    margin: 10px;
+    color: var(--color0);
+}
+
+h2{
+    text-align: center;
+}
+
+.addnote{
+    background-color: var(--color1);
+    color: var(--color4);
+    border: var(--color0) solid 2px;
+}
+
+
+
+
+/* This is where the form for the creation of notes will go */
+.hideNote{
+    display: none;
+}
+
+form{
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    margin: 10px;
+    background-color: var(--color2);
+    border: var(--color0) solid 2px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.cancelCreation{
+    background-color: var(--color1);
+    width: 30px;
+    height: auto;
+    justify-self: right;
+}
+
+.noteTextContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+form div{
+    margin: 5px;
+}
+.noteTitle{
+    width: 50vw;
+}
+.noteText{
+    height: 50vh;
+    width: 50vw;
+}
+
+.closeContainer{
+    display: flex;
+    justify-content: right;
+}
+form button{
+    background-color: var(--color1);
+    color: var(--color4);
+    border: var(--color0) solid 2px;
+    border-radius: 3px;
+}
+
+
